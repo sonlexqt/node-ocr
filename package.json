@@ -1,0 +1,44 @@
+{
+  "name": "node-ocr",
+  "version": "0.0.1",
+  "description": "A node.js wrapper of the well-known Tesseract OCR library for handling optical character recognition in PDF/images files.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha --reporter=list --watch",
+    "compile": "babel -d dist/ src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonlexqt/node-ocr.git"
+  },
+  "keywords": [
+    "ocr",
+    "pdf",
+    "tesseract",
+    "pdf ocr",
+    "node",
+    "node ocr",
+    "image",
+    "image ocr",
+    "images",
+    "images ocr"
+  ],
+  "author": "Son Le <sonlexqt@gmail.com> (sonlexqt.github.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonlexqt/node-ocr/issues"
+  },
+  "homepage": "https://github.com/sonlexqt/node-ocr#readme",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {}
+}
