@@ -10,9 +10,19 @@
 */
 
 class NodeOCR {
+  constructor() {
+    // create tmp directories at where ?
+    // /tmp/node-ocr/tmp/id/
+    // + split
+    // + ocr
+    // + output
+  }
+
   start(options) {
     return new Promise((resolve, reject) => {
       // this.options = getOptions(options);
+      // checkOptions
+      // getOptions
     });
   }
 }

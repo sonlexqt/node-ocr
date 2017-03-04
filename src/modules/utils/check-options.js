@@ -1,7 +1,7 @@
 import { ensure, oneOf } from 'simplecheck';
 
-const checkOptions = ({ input, language, textcleaner, outputType, outputFile }) => {
-  ensure(input, String);
+const checkOptions = ({ inputFile, language, textcleaner, outputType, outputFile }) => {
+  ensure(inputFile, String);
   ensure(language, String);
   ensure(textcleaner, oneOf(true, false, undefined, null));
   ensure(outputType, String);

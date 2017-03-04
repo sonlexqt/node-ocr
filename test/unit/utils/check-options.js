@@ -1,38 +1,37 @@
-import chai, { expect, assert } from 'chai';
-import { checkOptions, getOptions } from '../../src/modules/utils';
-
-chai.should();
+import { expect, assert } from 'chai';
+import { checkOptions } from '../../../src/modules/utils';
 
 describe('utils', () => {
   /**
    * checkOptions
    */
   describe('checkOptions', () => {
-    it('should throw error if "input" value is not a string', () => {
+
+    it('should throw error if "inputFile" input is not a string', () => {
       const validOptions = {
         language: 'eng',
         textcleaner: false,
         outputType: 'PDF',
         outputFile: 'path/to/output/file'
       };
-      const invalidInputs = [
+      const invalidInputFiles = [
         null,
         {},
         1,
         undefined,
       ];
-      invalidInputs.forEach((invalidInput) => {
+      invalidInputFiles.forEach((invalidInputFile) => {
         const options = {
-          input: invalidInput,
+          inputFile: invalidInputFile,
           ...validOptions,
         };
         expect(checkOptions.bind(null, options)).to.throw(/Expected.*string/);
       });
     });
 
-    it('should throw error if "language" value is not a string', () => {
+    it('should throw error if "language" input is not a string', () => {
       const validOptions = {
-        input: 'path/to/input/file',
+        inputFile: 'path/to/input/file',
         textcleaner: false,
         outputType: 'PDF',
         outputFile: 'path/to/output/file'
@@ -52,9 +51,9 @@ describe('utils', () => {
       });
     });
 
-    it('should NOT throw error if "textcleaner" value is one of (true, false, undefined, null)', () => {
+    it('should NOT throw error if "textcleaner" input is one of (true, false, undefined, null)', () => {
       const validOptions = {
-        input: 'path/to/input/file',
+        inputFile: 'path/to/input/file',
         language: 'deu',
         outputType: 'PDF',
         outputFile: 'path/to/output/file'
@@ -74,9 +73,9 @@ describe('utils', () => {
       });
     });
 
-    it('should throw error if "textcleaner" value is everything else', () => {
+    it('should throw error if "textcleaner" input is everything else', () => {
       const validOptions = {
-        input: 'path/to/input/file',
+        inputFile: 'path/to/input/file',
         language: 'deu',
         outputType: 'PDF',
         outputFile: 'path/to/output/file'
@@ -95,9 +94,9 @@ describe('utils', () => {
       });
     });
 
-    it('should throw error if "outputType" value is not a string', () => {
+    it('should throw error if "outputType" input is not a string', () => {
       const validOptions = {
-        input: 'path/to/input/file',
+        inputFile: 'path/to/input/file',
         language: 'eng',
         textcleaner: false,
         outputFile: 'path/to/output/file'
@@ -117,9 +116,9 @@ describe('utils', () => {
       });
     });
 
-    it('should throw error if "outputType" value is a string but not one of ["text", "pdf"]', () => {
+    it('should throw error if "outputType" input is a string but not one of ["text", "pdf"]', () => {
       const validOptions = {
-        input: 'path/to/input/file',
+        inputFile: 'path/to/input/file',
         language: 'eng',
         textcleaner: false,
         outputFile: 'path/to/output/file'
@@ -138,9 +137,9 @@ describe('utils', () => {
       })
     });
 
-    it('should throw error if "outputFile" is not a string', () => {
+    it('should throw error if "outputFile" input is not a string', () => {
       const validOptions = {
-        input: 'path/to/input/file',
+        inputFile: 'path/to/input/file',
         language: 'eng',
         textcleaner: false,
         outputType: 'pdf',
@@ -160,9 +159,9 @@ describe('utils', () => {
       });
     });
 
-    it('should return true if all params are valid', () => {
+    it('should return true if all input params are valid', () => {
       const options = {
-        input: 'path/to/input/file',
+        inputFile: 'path/to/input/file',
         language: 'eng',
         textcleaner: false,
         outputType: 'PDF',
@@ -170,39 +169,19 @@ describe('utils', () => {
       };
       expect(checkOptions(options)).to.equal(true);
     });
-  });
 
-  /**
-   * getOptions
-   */
-  describe('getOptions', () => {
-    it('should return an object', () => {
-      const options = {
-        input: 'path/to/input/file',
-        language: 'deu',
-        textcleaner: false,
-        outputType: 'PDF',
-        outputFile: 'path/to/output/file'
-      };
-      getOptions(options).should.be.an('object');
+    xit('should throw error if "language" input is NOT a valid tesseract language value', () => {
+      // Currently we just check if "language" input is a string
     });
 
-    it('should merge custom options with the default options', () => {
-      const customOptions = {
-        input: 'path/to/input/file',
-        language: 'deu',
-        outputType: 'PDF',
-        outputFile: 'path/to/output/file'
-      };
-      const mergedOptions = {
-        input: 'path/to/input/file',
-        language: 'deu',
-        textcleaner: false,
-        outputType: 'PDF',
-        outputFile: 'path/to/output/file'
-      };
-      expect(getOptions(customOptions)).to.eql(mergedOptions);
+    xit('should throw error if "inputFile" input is NOT a valid file', () => {
+
+    });
+
+    xit('should throw error if "outputFile" input is NOT a valid path', () => {
+
     });
 
   });
+
 });
