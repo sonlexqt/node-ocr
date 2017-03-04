@@ -33,13 +33,13 @@ describe('utils', () => {
         mock.restore();
       });
 
-      it('should throw error if "dirPath" is already exists', () => {
+      it('should return false if "dirPath" is already exists', () => {
         // Create virtual file system environment
         mock({});
         const dirPathInput = '/my-directory-name';
         expect(createDirectory(dirPathInput)).to.equal(true);
         // Create the same directory again
-        expect(createDirectory.bind(null, dirPathInput)).to.throw(/EEXIST.*file already exists/);
+        expect(createDirectory(dirPathInput)).to.equal(false);
         // Restore original file system environment
         mock.restore();
       });

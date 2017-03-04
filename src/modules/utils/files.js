@@ -7,7 +7,10 @@ const createDirectory = (dirPath) => {
     fs.mkdirSync(dirPath);
     return true;
   } catch (error) {
-    throw error;
+    const EEXISTRegExp = new RegExp(/EEXIST.*file already exists/);
+    const isEEXISTError = EEXISTRegExp.test(error.message);
+    if (isEEXISTError) return false;
+    else throw error;
   }
 };
 

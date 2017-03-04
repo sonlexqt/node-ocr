@@ -8,19 +8,23 @@
     outputFile = path of output file, if outputType='text' => outputFile is a txt file
   }
 */
+import { createDirectory, checkOptions, getOptions } from './modules/utils';
 
 class NodeOCR {
   constructor() {
-    // create tmp directories at where ?
-    // /tmp/node-ocr/tmp/id/
-    // + split
-    // + ocr
-    // + output
+    this.options = {};
+    // Create temporary directories
+    createDirectory('/tmp');
+    createDirectory('/tmp/node-ocr/');
+    createDirectory('/tmp/node-ocr/split/');
+    createDirectory('/tmp/node-ocr/ocr/');
+    createDirectory('/tmp/node-ocr/output/');
   }
 
   start(options) {
     return new Promise((resolve, reject) => {
-      // this.options = getOptions(options);
+      checkOptions(options);
+      this.options = getOptions(options);
       // checkOptions
       // getOptions
     });
