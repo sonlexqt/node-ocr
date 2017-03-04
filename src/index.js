@@ -8,7 +8,12 @@
     outputFile = path of output file, if outputType='text' => outputFile is a txt file
   }
 */
-import { createDirectory, checkOptions, getOptions } from './modules/utils';
+import {
+  createDirectory,
+  checkOptions,
+  getOptions,
+  getFileExtension,
+} from './modules/utils';
 
 class NodeOCR {
   constructor() {
@@ -25,8 +30,10 @@ class NodeOCR {
     return new Promise((resolve, reject) => {
       checkOptions(options);
       this.options = getOptions(options);
-      // checkOptions
-      // getOptions
+      const {
+        inputFile,
+      } = options;
+      const inputFileExtension = getFileExtension(inputFile);
     });
   }
 }

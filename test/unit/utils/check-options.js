@@ -69,7 +69,7 @@ describe('utils', () => {
           textcleaner: TCValue,
           ...validOptions,
         };
-        checkOptions(options).should.equal(true);
+        expect(checkOptions(options)).to.equal(true);
       });
     });
 
@@ -116,7 +116,7 @@ describe('utils', () => {
       });
     });
 
-    it('should throw error if "outputType" input is a string but not one of ["text", "pdf"]', () => {
+    it('should throw error if "outputType" input is a string but not one of ["txt", "pdf"]', () => {
       const validOptions = {
         inputFile: 'path/to/input/file',
         language: 'eng',
@@ -133,7 +133,7 @@ describe('utils', () => {
           ...validOptions,
           outputType: invalidOutputType,
         };
-        expect(checkOptions.bind(null, options)).to.throw(/Expected.*"text","pdf".*/);
+        expect(checkOptions.bind(null, options)).to.throw(/Expected.*"txt","pdf".*/);
       })
     });
 

@@ -42,6 +42,7 @@
     "mock-fs": "^4.1.0"
   },
   "dependencies": {
+    "mime": "^1.3.4",
     "simplecheck": "^0.1.3"
   }
 }

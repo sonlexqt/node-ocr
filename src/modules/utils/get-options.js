@@ -2,7 +2,7 @@ const getOptions = ({ inputFile, language, textcleaner, outputType, outputFile }
   const defaultOptions = {
     language: 'eng',
     textcleaner: false,
-    outputType: 'TEXT'
+    outputType: 'TXT',
   };
   return {
     inputFile,
