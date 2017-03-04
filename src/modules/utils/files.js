@@ -1,10 +1,12 @@
 import fs from 'fs';
+import { ensure } from 'simplecheck';
 
 const createDirectory = (dirPath) => {
+  ensure(dirPath, String);
   try {
     fs.mkdirSync(dirPath);
+    return true;
   } catch (error) {
-    console.error(error);
     throw error;
   }
 };

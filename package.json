@@ -38,7 +38,8 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
     "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "mock-fs": "^4.1.0"
   },
   "dependencies": {
     "simplecheck": "^0.1.3"
